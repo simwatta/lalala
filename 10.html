@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение регистра символа</title>
+    <script>
+        function checkCase() {
+            // Получаем значение из текстового поля
+            const char = document.getElementById("charInput").value;
+
+            // Проверяем, введен ли только один символ
+            if (char.length !== 1) {
+                document.getElementById("result").innerText = "Введите ровно один символ.";
+                return;
+            }
+
+            // Проверяем регистр символа
+            if (char >= 'A' && char <= 'Z') {
+                document.getElementById("result").innerText = "Символ в верхнем регистре.";
+            } else if (char >= 'a' && char <= 'z') {
+                document.getElementById("result").innerText = "Символ в нижнем регистре.";
+            } else {
+                document.getElementById("result").innerText = "Введен не буквенный символ.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Определение регистра символа</h1>
+    <input type="text" id="charInput" maxlength="1" placeholder="Введите один символ">
+    <button onclick="checkCase()">Проверить регистр</button>
+    <div id="result"></div>
+</body>
+</html>
